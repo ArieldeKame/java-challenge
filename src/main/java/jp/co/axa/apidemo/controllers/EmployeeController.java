@@ -30,8 +30,8 @@ public class EmployeeController {
     }
 
     @PostMapping("/employees")
-    public void saveEmployee(Employee employee){
-        employeeService.saveEmployee(employee);
+    public void addEmployee(Employee employee){
+        employeeService.addEmployee(employee);
         System.out.println("Employee Saved Successfully");
     }
 
