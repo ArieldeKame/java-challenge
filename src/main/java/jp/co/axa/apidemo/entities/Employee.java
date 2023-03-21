@@ -22,12 +22,12 @@ public class Employee {
 
     @Getter
     @Setter
-    @Column(name="EMPLOYEE_NAME")
+    @Column(name="NAME")
     private String name;
 
     @Getter
     @Setter
-    @Column(name="EMPLOYEE_SALARY")
+    @Column(name="SALARY")
     private Integer salary;
 
     @Getter
