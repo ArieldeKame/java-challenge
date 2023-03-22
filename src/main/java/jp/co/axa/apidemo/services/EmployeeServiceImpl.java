@@ -23,8 +23,7 @@ public class EmployeeServiceImpl implements EmployeeService{
 
     @Cacheable("employees")
     public List<Employee> retrieveEmployees() {
-        List<Employee> employees = employeeRepository.findAll();
-        return employees;
+        return employeeRepository.findAll();
     }
 
     @Cacheable(value = "employees", key = "#employeeId")
