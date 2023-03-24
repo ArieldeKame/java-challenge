@@ -14,7 +14,8 @@ public class Employee {
 
     public Employee() {}
 
-    public Employee(String name, String department, Integer salary) {
+    public Employee(Long id, String name, String department, Integer salary) {
+        this.id = id;
         this.name = name;
         this.department = department;
         this.salary = salary;
