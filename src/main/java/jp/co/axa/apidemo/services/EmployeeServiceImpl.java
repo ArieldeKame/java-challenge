@@ -32,8 +32,8 @@ public class EmployeeServiceImpl implements EmployeeService{
         return optEmp.get();
     }
 
-    public void addEmployee(Employee employee){
-        employeeRepository.save(employee);
+    public Employee addEmployee(Employee employee){
+        return employeeRepository.save(employee);
     }
 
     @CacheEvict(value = "employees", key = "#employeeId")
@@ -42,7 +42,8 @@ public class EmployeeServiceImpl implements EmployeeService{
     }
 
     @CachePut(value = "employees", key = "#employee.id")
-    public void updateEmployee(Employee employee) {
+    public Employee updateEmployee(Employee employee) {
         employeeRepository.save(employee);
+        return employee;
     }
 }
