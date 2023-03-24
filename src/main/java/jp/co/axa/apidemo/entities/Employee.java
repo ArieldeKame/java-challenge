@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="EMPLOYEE")
@@ -29,15 +31,18 @@ public class Employee {
     @Getter
     @Setter
     @Column(name="NAME")
+    @Size(min = 1, max = 50)
     private String name;
 
     @Getter
     @Setter
     @Column(name="SALARY")
+    @Min(0)
     private Integer salary;
 
     @Getter
     @Setter
+    @Size(min = 1, max = 50)
     @Column(name="DEPARTMENT")
     private String department;
 
