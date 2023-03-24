@@ -1,5 +1,6 @@
 package jp.co.axa.apidemo.services;
 
+import jp.co.axa.apidemo.controllers.EmployeeNotFoundException;
 import jp.co.axa.apidemo.entities.Employee;
 import jp.co.axa.apidemo.repositories.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +29,7 @@ public class EmployeeServiceImpl implements EmployeeService{
 
     @Cacheable(value = "employees", key = "#employeeId")
     public Employee getEmployee(Long employeeId) {
-        Optional<Employee> optEmp = employeeRepository.findById(employeeId);
+        Optional<Employee> optEmp = Optional.ofNullable(employeeRepository.findById(employeeId).orElseThrow(() -> new EmployeeNotFoundException(employeeId)));
         return optEmp.get();
     }
 
