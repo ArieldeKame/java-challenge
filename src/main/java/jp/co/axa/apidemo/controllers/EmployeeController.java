@@ -29,9 +29,10 @@ public class EmployeeController {
     }
 
     @PostMapping("/employees")
-    public void addEmployee(Employee employee){
-        employeeService.addEmployee(employee);
+    public Employee addEmployee(@RequestBody Employee employee){
+        employee = employeeService.addEmployee(employee);
         System.out.println("Employee Saved Successfully");
+        return employee;
     }
 
     @DeleteMapping("/employees/{employeeId}")
@@ -41,13 +42,14 @@ public class EmployeeController {
     }
 
     @PutMapping("/employees/{employeeId}")
-    public void updateEmployee(@RequestBody Employee employee,
+    public Employee updateEmployee(@RequestBody Employee employee,
                                @PathVariable(name="employeeId")Long employeeId){
         Employee emp = employeeService.getEmployee(employeeId);
-        if(emp != null){
-            employeeService.updateEmployee(employee);
+        if(emp != null) {
+            return employeeService.updateEmployee(emp);
         }
 
+        return null;
     }
 
 }
