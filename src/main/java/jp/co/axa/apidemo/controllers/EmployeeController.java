@@ -37,8 +37,11 @@ public class EmployeeController {
 
     @DeleteMapping("/employees/{employeeId}")
     public void deleteEmployee(@PathVariable(name="employeeId")Long employeeId){
-        employeeService.deleteEmployee(employeeId);
-        System.out.println("Employee Deleted Successfully");
+        Employee emp = employeeService.getEmployee(employeeId);
+        if(emp != null) {
+            employeeService.deleteEmployee(employeeId);
+            System.out.println("Employee Deleted Successfully");
+        }
     }
 
     @PutMapping("/employees/{employeeId}")
