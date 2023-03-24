@@ -16,7 +16,7 @@ public class AppRunner implements CommandLineRunner {
     @Override
     public void run(String... args) {
         for (int i = 1; i <= NUMBER_OF_EMPLOYEES; i++) {
-            employeeRepository.save(new Employee("employee_name" + i, "employee_department" + i, 1000 + i));
+            employeeRepository.save(new Employee((long) i, "employee_name" + i, "employee_department" + i, 1000 + i));
         }
     }
 
