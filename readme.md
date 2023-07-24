@@ -58,13 +58,13 @@ Please let us know more about your Java experience in a few sentences. For examp
 
 - Add tests
 - Add caching logic for database calls
-- Fixed bugs
+- Fix bugs
 
 
 ### What I would have done if I had more time
 
 - Protect controller end points
-- Add comments
+- Add more comments
 
 
 #### My experience in Java
