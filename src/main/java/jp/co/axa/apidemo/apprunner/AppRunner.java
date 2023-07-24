@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Component
 @RequiredArgsConstructor
 public class AppRunner implements CommandLineRunner {
-
+    // populate the database table with 1000 employees for testing purpose
     private static final int NUMBER_OF_EMPLOYEES = 1000;
     private final EmployeeRepository employeeRepository;
 
@@ -19,5 +19,4 @@ public class AppRunner implements CommandLineRunner {
             employeeRepository.save(new Employee((long) i, "employee_name" + i, "employee_department" + i, 1000 + i));
         }
     }
-
 }

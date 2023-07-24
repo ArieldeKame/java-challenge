@@ -26,7 +26,6 @@ import static org.junit.Assert.assertEquals;
 @RunWith(SpringRunner.class)
 @WebMvcTest(value=EmployeeController.class)
 public class EmployeeControllerTest {
-
     @Autowired
     private MockMvc mockMvc;
 
@@ -36,6 +35,7 @@ public class EmployeeControllerTest {
     @MockBean
     private EmployeeRepository employeeRepo;
 
+    // test employee retrieval
     @Test
     public void getEmployee() throws Exception {
         Employee mockEmployee = new Employee(1L, "ariel", "engineering", 10000000);
@@ -58,6 +58,7 @@ public class EmployeeControllerTest {
         assertEquals(HttpStatus.OK.value(), result.getResponse().getStatus());
     }
 
+    // test employee deletion
     @Test
     public void deleteEmployee() throws Exception {
         this.addEmployee();
@@ -73,6 +74,7 @@ public class EmployeeControllerTest {
         assertEquals(HttpStatus.OK.value(), result.getResponse().getStatus());
     }
 
+    // test employee registration
     @Test
     public void addEmployee() throws Exception {
         Employee mockEmployee = new Employee(1L, "ariel", "engineering", 10000000);
@@ -94,6 +96,7 @@ public class EmployeeControllerTest {
         this.getEmployee();
     }
 
+    // test employee update
     @Test
     public void updateEmployee() throws Exception {
         Employee mockEmployee = new Employee(1L, "arielle", "sales", 15000000);

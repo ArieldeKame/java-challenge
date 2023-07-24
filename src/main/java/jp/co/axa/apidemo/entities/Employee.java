@@ -11,9 +11,9 @@ import javax.validation.constraints.Size;
 @Entity
 @Table(name="EMPLOYEE")
 public class Employee {
-
     public Employee() {}
 
+    // create a new employee using provided data
     public Employee(Long id, String name, String department, Integer salary) {
         this.id = id;
         this.name = name;
@@ -46,5 +46,4 @@ public class Employee {
     @Size(min = 1, max = 50)
     @Column(name="DEPARTMENT")
     private String department;
-
 }

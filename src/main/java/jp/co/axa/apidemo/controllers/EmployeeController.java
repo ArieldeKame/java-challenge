@@ -10,7 +10,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1")
 public class EmployeeController {
-
     @Autowired
     private EmployeeService employeeService;
 
@@ -18,16 +17,19 @@ public class EmployeeController {
         this.employeeService = employeeService;
     }
 
+    // get all registered employees
     @GetMapping("/employees")
     public List<Employee> getEmployees() {
         return employeeService.retrieveEmployees();
     }
 
+    // get a specific employee by ID
     @GetMapping("/employees/{employeeId}")
     public Employee getEmployee(@PathVariable(name="employeeId")Long employeeId) {
         return employeeService.getEmployee(employeeId);
     }
 
+    // register a new employee
     @PostMapping("/employees")
     public Employee addEmployee(@RequestBody Employee employee){
         employee = employeeService.addEmployee(employee);
@@ -35,6 +37,7 @@ public class EmployeeController {
         return employee;
     }
 
+    // delete a registered employee
     @DeleteMapping("/employees/{employeeId}")
     public void deleteEmployee(@PathVariable(name="employeeId")Long employeeId){
         Employee emp = employeeService.getEmployee(employeeId);
@@ -44,6 +47,7 @@ public class EmployeeController {
         }
     }
 
+    // update a registered employee
     @PutMapping("/employees/{employeeId}")
     public Employee updateEmployee(@RequestBody Employee employee,
                                @PathVariable(name="employeeId")Long employeeId){
@@ -57,5 +61,4 @@ public class EmployeeController {
 
         return null;
     }
-
 }
